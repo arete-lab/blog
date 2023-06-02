@@ -1,12 +1,17 @@
 syntax = "proto3";
+
 package blog.blog;
 
 import "gogoproto/gogo.proto";
 import "blog/blog/params.proto";
+import "blog/blog/post.proto";
 
 option go_package = "blog/x/blog/types";
 
 // GenesisState defines the blog module's genesis state.
 message GenesisState {
-  Params params = 1 [(gogoproto.nullable) = false];
+           Params params    = 1 [(gogoproto.nullable) = false];
+  repeated Post   postList  = 2 [(gogoproto.nullable) = false];
+           uint64 postCount = 3;
 }
+
