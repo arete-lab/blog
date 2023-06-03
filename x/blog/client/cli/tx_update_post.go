@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"blog/x/blog/types"
+
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -33,9 +34,9 @@ func CmdUpdatePost() *cobra.Command {
 
 			msg := types.NewMsgUpdatePost(
 				clientCtx.GetFromAddress().String(),
-				argTitle,
-				argBody,
 				argId,
+				argBody,
+				argTitle,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
