@@ -30,6 +30,11 @@ service Query {
     option (google.api.http).get = "/blog/blog/list_post";
   
   }
+  
+  message QueryListPostResponse {
+    repeated Post post = 1 [(gogoproto.nullable) = false];
+    cosmos.base.query.v1beta1.PageResponse pagination = 2;
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -43,10 +48,6 @@ message QueryParamsResponse {
 
 message QueryShowPostRequest {
   uint64 id = 1;
-}
-
-message QueryShowPostResponse {
-  Post post = 1;
 }
 
 message QueryListPostRequest {
