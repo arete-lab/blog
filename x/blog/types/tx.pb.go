@@ -235,17 +235,107 @@ func (m *MsgUpdatePostResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgUpdatePostResponse proto.InternalMessageInfo
 
+type MsgDeletePost struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeletePost) Reset()         { *m = MsgDeletePost{} }
+func (m *MsgDeletePost) String() string { return proto.CompactTextString(m) }
+func (*MsgDeletePost) ProtoMessage()    {}
+func (*MsgDeletePost) Descriptor() ([]byte, []int) {
+	return fileDescriptor_35732e905b6dd4b9, []int{4}
+}
+func (m *MsgDeletePost) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeletePost) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeletePost.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeletePost) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeletePost.Merge(m, src)
+}
+func (m *MsgDeletePost) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeletePost) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeletePost.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeletePost proto.InternalMessageInfo
+
+func (m *MsgDeletePost) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeletePost) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeletePostResponse struct {
+}
+
+func (m *MsgDeletePostResponse) Reset()         { *m = MsgDeletePostResponse{} }
+func (m *MsgDeletePostResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeletePostResponse) ProtoMessage()    {}
+func (*MsgDeletePostResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_35732e905b6dd4b9, []int{5}
+}
+func (m *MsgDeletePostResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeletePostResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeletePostResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeletePostResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeletePostResponse.Merge(m, src)
+}
+func (m *MsgDeletePostResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeletePostResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeletePostResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeletePostResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreatePost)(nil), "blog.blog.MsgCreatePost")
 	proto.RegisterType((*MsgCreatePostResponse)(nil), "blog.blog.MsgCreatePostResponse")
 	proto.RegisterType((*MsgUpdatePost)(nil), "blog.blog.MsgUpdatePost")
 	proto.RegisterType((*MsgUpdatePostResponse)(nil), "blog.blog.MsgUpdatePostResponse")
+	proto.RegisterType((*MsgDeletePost)(nil), "blog.blog.MsgDeletePost")
+	proto.RegisterType((*MsgDeletePostResponse)(nil), "blog.blog.MsgDeletePostResponse")
 }
 
 func init() { proto.RegisterFile("blog/blog/tx.proto", fileDescriptor_35732e905b6dd4b9) }
 
 var fileDescriptor_35732e905b6dd4b9 = []byte{
-	// 246 bytes of a gzipped FileDescriptorProto
+	// 280 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4a, 0xca, 0xc9, 0x4f,
 	0xd7, 0x07, 0x13, 0x25, 0x15, 0x7a, 0x05, 0x45, 0xf9, 0x25, 0xf9, 0x42, 0x9c, 0x20, 0xae, 0x1e,
 	0x88, 0x50, 0x0a, 0xe6, 0xe2, 0xf5, 0x2d, 0x4e, 0x77, 0x2e, 0x4a, 0x4d, 0x2c, 0x49, 0x0d, 0xc8,
@@ -255,13 +345,15 @@ var fileDescriptor_35732e905b6dd4b9 = []byte{
 	0x95, 0xd4, 0xb9, 0x44, 0x51, 0x0c, 0x0d, 0x4a, 0x2d, 0x2e, 0xc8, 0xcf, 0x2b, 0x4e, 0x15, 0xe2,
 	0xe3, 0x62, 0xca, 0x4c, 0x01, 0x9b, 0xcb, 0x12, 0xc4, 0x94, 0x99, 0xa2, 0x94, 0x0c, 0xb6, 0x3d,
 	0xb4, 0x20, 0x85, 0x8a, 0xb6, 0x43, 0x2d, 0x61, 0x81, 0x5b, 0x22, 0x0e, 0x76, 0x0d, 0xc2, 0x12,
-	0x98, 0x6b, 0x8c, 0x66, 0x32, 0x72, 0x31, 0xfb, 0x16, 0xa7, 0x0b, 0x79, 0x70, 0x71, 0x21, 0x07,
-	0x80, 0x1e, 0x3c, 0x74, 0xf4, 0x50, 0x7c, 0x21, 0xa5, 0x80, 0x4b, 0x06, 0xee, 0x3f, 0x0f, 0x2e,
-	0x2e, 0x64, 0xcf, 0xa0, 0xaa, 0x47, 0xc8, 0xa0, 0x9b, 0x84, 0xe9, 0x36, 0x27, 0xed, 0x13, 0x8f,
-	0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2, 0x63, 0x39, 0x86, 0x0b,
-	0x8f, 0xe5, 0x18, 0x6e, 0x3c, 0x96, 0x63, 0x88, 0x12, 0x04, 0xc7, 0x65, 0x05, 0x34, 0x4a, 0x2b,
-	0x0b, 0x52, 0x8b, 0x93, 0xd8, 0xc0, 0xd1, 0x6a, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xa2, 0x7c,
-	0x7f, 0xc6, 0xec, 0x01, 0x00, 0x00,
+	0x98, 0x6b, 0x94, 0x2c, 0xc1, 0xb6, 0xbb, 0xa4, 0xe6, 0xa4, 0x12, 0xb4, 0x1d, 0x62, 0x26, 0x13,
+	0x9a, 0x99, 0x08, 0xad, 0x30, 0x33, 0x8d, 0x1e, 0x33, 0x72, 0x31, 0xfb, 0x16, 0xa7, 0x0b, 0x79,
+	0x70, 0x71, 0x21, 0x07, 0xaa, 0x1e, 0x3c, 0xc4, 0xf5, 0x50, 0x42, 0x46, 0x4a, 0x01, 0x97, 0x0c,
+	0x3c, 0xcc, 0x3c, 0xb8, 0xb8, 0x90, 0x03, 0x08, 0x55, 0x3d, 0x42, 0x06, 0xdd, 0x24, 0x4c, 0xff,
+	0x82, 0x4c, 0x42, 0xf6, 0x2c, 0xaa, 0x7a, 0x84, 0x0c, 0xba, 0x49, 0x98, 0xbe, 0x74, 0xd2, 0x3e,
+	0xf1, 0x48, 0x8e, 0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x27, 0x3c, 0x96, 0x63,
+	0xb8, 0xf0, 0x58, 0x8e, 0xe1, 0xc6, 0x63, 0x39, 0x86, 0x28, 0x41, 0x70, 0x4a, 0xab, 0x80, 0x26,
+	0xb8, 0xca, 0x82, 0xd4, 0xe2, 0x24, 0x36, 0x70, 0xa2, 0x33, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff,
+	0xb8, 0x57, 0xec, 0xff, 0x8a, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -278,6 +370,7 @@ const _ = grpc.SupportPackageIsVersion4
 type MsgClient interface {
 	CreatePost(ctx context.Context, in *MsgCreatePost, opts ...grpc.CallOption) (*MsgCreatePostResponse, error)
 	UpdatePost(ctx context.Context, in *MsgUpdatePost, opts ...grpc.CallOption) (*MsgUpdatePostResponse, error)
+	DeletePost(ctx context.Context, in *MsgDeletePost, opts ...grpc.CallOption) (*MsgDeletePostResponse, error)
 }
 
 type msgClient struct {
@@ -306,10 +399,20 @@ func (c *msgClient) UpdatePost(ctx context.Context, in *MsgUpdatePost, opts ...g
 	return out, nil
 }
 
+func (c *msgClient) DeletePost(ctx context.Context, in *MsgDeletePost, opts ...grpc.CallOption) (*MsgDeletePostResponse, error) {
+	out := new(MsgDeletePostResponse)
+	err := c.cc.Invoke(ctx, "/blog.blog.Msg/DeletePost", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreatePost(context.Context, *MsgCreatePost) (*MsgCreatePostResponse, error)
 	UpdatePost(context.Context, *MsgUpdatePost) (*MsgUpdatePostResponse, error)
+	DeletePost(context.Context, *MsgDeletePost) (*MsgDeletePostResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -321,6 +424,9 @@ func (*UnimplementedMsgServer) CreatePost(ctx context.Context, req *MsgCreatePos
 }
 func (*UnimplementedMsgServer) UpdatePost(ctx context.Context, req *MsgUpdatePost) (*MsgUpdatePostResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePost not implemented")
+}
+func (*UnimplementedMsgServer) DeletePost(ctx context.Context, req *MsgDeletePost) (*MsgDeletePostResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePost not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -363,6 +469,24 @@ func _Msg_UpdatePost_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_DeletePost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeletePost)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeletePost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/blog.blog.Msg/DeletePost",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeletePost(ctx, req.(*MsgDeletePost))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "blog.blog.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -374,6 +498,10 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdatePost",
 			Handler:    _Msg_UpdatePost_Handler,
+		},
+		{
+			MethodName: "DeletePost",
+			Handler:    _Msg_DeletePost_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -524,6 +652,64 @@ func (m *MsgUpdatePostResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgDeletePost) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeletePost) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeletePost) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeletePostResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeletePostResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeletePostResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -593,6 +779,31 @@ func (m *MsgUpdatePost) Size() (n int) {
 }
 
 func (m *MsgUpdatePostResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeletePost) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeletePostResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1014,6 +1225,157 @@ func (m *MsgUpdatePostResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgUpdatePostResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeletePost) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeletePost: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeletePost: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeletePostResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeletePostResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeletePostResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

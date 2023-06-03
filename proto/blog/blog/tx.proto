@@ -8,6 +8,7 @@ option go_package = "blog/x/blog/types";
 service Msg {
   rpc CreatePost (MsgCreatePost) returns (MsgCreatePostResponse);
   rpc UpdatePost (MsgUpdatePost) returns (MsgUpdatePostResponse);
+  rpc DeletePost (MsgDeletePost) returns (MsgDeletePostResponse);
 }
 message MsgCreatePost {
   string creator = 1;
@@ -27,4 +28,11 @@ message MsgUpdatePost {
 }
 
 message MsgUpdatePostResponse {}
+
+message MsgDeletePost {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeletePostResponse {}
 
