@@ -4,7 +4,9 @@ import (
 	"context"
 
 	"blog/x/blog/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -15,9 +17,10 @@ func (k Keeper) ShowPost(goCtx context.Context, req *types.QueryShowPostRequest)
 	}
 
 	ctx := sdk.UnwrapSDKContext(goCtx)
+	post, found := k.GetPost(ctx, req.Id)
+	if !found {
+		return nil, sdkerrors.ErrKeyNotFound
+	}
 
-	// TODO: Process the query
-	_ = ctx
-
-	return &types.QueryShowPostResponse{}, nil
+	return &types.QueryShowPostResponse{Post: post}, nil
 }
