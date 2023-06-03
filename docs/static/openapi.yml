@@ -43907,6 +43907,8 @@ definitions:
       id:
         type: string
         format: uint64
+  blog.blog.MsgUpdatePostResponse:
+    type: object
   blog.blog.Params:
     type: object
     description: Params defines the parameters for the module.
