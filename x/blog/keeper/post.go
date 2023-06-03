@@ -18,3 +18,13 @@ func (k Keeper) AppendPost(ctx sdk.Context, post types.Post) uint64 {
 	k.SetPostCount(ctx, count+1)
 	return count
 }
+
+func (k Keeper) GetPostCount(ctx sdk.Context) uint64 {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+	byteKey := types.KeyPrefix(types.PostCountKey)
+	bz := store.Get(byteKey)
+	if bz == nil {
+		return 0
+	}
+	return binary.BigEndian.Uint64(bz)
+}
