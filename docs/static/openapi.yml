@@ -40,6 +40,54 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
+  /blog/blog/show_post/{id}:
+    get:
+      summary: Queries a list of ShowPost items.
+      operationId: BlogBlogShowPost
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              post:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  body:
+                    type: string
+                  creator:
+                    type: string
+                  id:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          format: uint64
+      tags:
+        - Query
   /cosmos/auth/v1beta1/accounts:
     get:
       summary: Accounts returns all the existing accounts
@@ -43914,6 +43962,18 @@ definitions:
   blog.blog.Params:
     type: object
     description: Params defines the parameters for the module.
+  blog.blog.Post:
+    type: object
+    properties:
+      title:
+        type: string
+      body:
+        type: string
+      creator:
+        type: string
+      id:
+        type: string
+        format: uint64
   blog.blog.QueryParamsResponse:
     type: object
     properties:
@@ -43921,6 +43981,21 @@ definitions:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
+  blog.blog.QueryShowPostResponse:
+    type: object
+    properties:
+      post:
+        type: object
+        properties:
+          title:
+            type: string
+          body:
+            type: string
+          creator:
+            type: string
+          id:
+            type: string
+            format: uint64
   google.protobuf.Any:
     type: object
     properties:
