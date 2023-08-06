@@ -7,6 +7,7 @@ option go_package = "blog/x/blog/types";
 // Msg defines the Msg service.
 service Msg {
   rpc CreatePost (MsgCreatePost) returns (MsgCreatePostResponse);
+  rpc UpdatePost (MsgUpdatePost) returns (MsgUpdatePostResponse);
 }
 message MsgCreatePost {
   string creator = 1;
@@ -17,4 +18,13 @@ message MsgCreatePost {
 message MsgCreatePostResponse {
   uint64 id = 1;
 }
+
+message MsgUpdatePost {
+  string creator = 1;
+  string title   = 2;
+  string body    = 3;
+  uint64 id      = 4;
+}
+
+message MsgUpdatePostResponse {}
 
