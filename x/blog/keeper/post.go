@@ -16,6 +16,26 @@ func (k Keeper) AppendPost(ctx sdk.Context, post types.Post) uint64 {
 	return post.Id
 }
 
+func (k Keeper) UpdatePost(ctx sdk.Context, post types.Post) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PostKey))
+	store.Set(k.GetPostIDBytes(post.Id), k.cdc.MustMarshal(&post))
+}
+
+func (k Keeper) SetPost(ctx sdk.Context, post types.Post) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PostKey))
+	store.Set(k.GetPostIDBytes(post.Id), k.cdc.MustMarshal(&post))
+}
+
+func (k Keeper) GetPost(ctx sdk.Context, id uint64) (val types.Post, found bool) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PostKey))
+	post := store.Get(k.GetPostIDBytes(id))
+	if post == nil {
+		return types.Post{}, false
+	}
+	k.cdc.MustUnmarshal(post, &val)
+	return val, true
+}
+
 func (k Keeper) GetPostIDBytes(id uint64) []byte {
 	bz := make([]byte, 8)
 	binary.BigEndian.PutUint64(bz, id)
