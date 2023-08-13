@@ -60,3 +60,8 @@ func (k Keeper) SetPostCount(ctx sdk.Context, count uint64) {
 	binary.BigEndian.PutUint64(bz, count)
 	store.Set(byteKey, bz)
 }
+
+func (k Keeper) RemovePost(ctx sdk.Context, id uint64) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PostKey))
+	store.Delete(k.GetPostIDBytes(id))
+}
